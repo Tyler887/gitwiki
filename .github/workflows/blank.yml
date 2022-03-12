@@ -35,7 +35,9 @@ jobs:
         run: |
           git remote add old https://github.com/Tyler887/gitwiki.git
           git fetch --unshallow old
-      - run: rm ${GITHUB_WORKSPACE}/*.md
+      - run: |
+         rm ${GITHUB_WORKSPACE}/*.md
+         ls
       - run: git add .
       - uses: actions/checkout@v2
         with:
