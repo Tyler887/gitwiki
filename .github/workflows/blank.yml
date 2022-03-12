@@ -35,7 +35,11 @@ jobs:
         run: |
           git remote add old https://github.com/Tyler887/gitwiki.git
           git fetch --unshallow old
-      - run: rm ${GITHUB_WORKSPACE}/*.md
+      - run: rm ${GITHUB_WORKSPACE}
+      - run: git add .
+      - uses: actions/checkout@v2
+        with:
+          repository: "Tyler887/gitwiki.wiki"
       - run: git pull https://github.com/Tyler887/gitwiki.git --rebase
       - run: git branch -m main
       - name: Push
