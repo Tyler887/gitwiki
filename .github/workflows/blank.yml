@@ -35,6 +35,7 @@ jobs:
         run: |
           git remote add old https://github.com/Tyler887/gitwiki.git
           git fetch --unshallow old
+      - run: git pull https://github.com/Tyler887/gitwiki.git
       - run: git branch -m main
       - name: Push
         run: git push --repo "https://github.com/${{ github.repository }}.git"
